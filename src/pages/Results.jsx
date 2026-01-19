@@ -54,7 +54,7 @@ const Results = () => {
 
     return (
         <div className="container">
-            <h1 className="title-gradient" style={{ textAlign: 'center' }}>Election Results 2026</h1>
+            <h1 className="title-gradient" style={{ textAlign: 'center' }}>Survey Results 2026</h1>
 
             {winner && (
                 <motion.div
@@ -62,11 +62,11 @@ const Results = () => {
                     className="card"
                     style={{ textAlign: 'center', marginBottom: '2rem', border: '2px solid var(--primary)' }}
                 >
-                    <h2>🎉 Highest Vote Count 🎉</h2>
+                    <h2>🎉 Highest Survey Response 🎉</h2>
                     <div style={{ fontSize: '2rem', fontWeight: 'bold', color: 'var(--primary)' }}>
                         {winner}
                     </div>
-                    <p>Tamil Nadu 2026: Vote Analysis</p>
+                    <p>Tamil Nadu 2026: Public Opinion Survey Analysis</p>
                 </motion.div>
             )}
 

@@ -42,7 +42,7 @@ const Home = () => {
             </motion.h1>
 
             <p style={{ fontSize: '1.8rem', color: '#f8fafc', fontWeight: '500' }}>
-                Your Vote, Your Future. Every vote counts towards analysing the next CM.
+                Your Vote, Your Future. Every vote counts towards analysing.
             </p>
 
             <Timer />

@@ -71,21 +71,25 @@ const Results = () => {
             )}
 
             <div className="card">
-                {Object.entries(results).map(([party, count]) => (
-                    <div key={party} style={{ marginBottom: '1rem' }}>
-                        <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.25rem' }}>
-                            <span>{party}</span>
-                            <strong>{count} Votes</strong>
+                {Object.entries(results).map(([party, count]) => {
+                    const totalVotes = Object.values(results).reduce((a, b) => a + b, 0) || 1;
+                    const percentage = ((count / totalVotes) * 100).toFixed(1);
+                    return (
+                        <div key={party} style={{ marginBottom: '1rem' }}>
+                            <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.25rem' }}>
+                                <span>{party}</span>
+                                <strong>{percentage}%</strong>
+                            </div>
+                            <div style={{ background: 'rgba(255,255,255,0.1)', height: '10px', borderRadius: '5px', overflow: 'hidden' }}>
+                                <motion.div
+                                    initial={{ width: 0 }}
+                                    animate={{ width: `${percentage}%` }}
+                                    style={{ height: '100%', background: 'var(--primary)' }}
+                                />
+                            </div>
                         </div>
-                        <div style={{ background: 'rgba(255,255,255,0.1)', height: '10px', borderRadius: '5px', overflow: 'hidden' }}>
-                            <motion.div
-                                initial={{ width: 0 }}
-                                animate={{ width: `${(count / (Object.values(results).reduce((a, b) => a + b, 0) || 1)) * 100}%` }}
-                                style={{ height: '100%', background: 'var(--primary)' }}
-                            />
-                        </div>
-                    </div>
-                ))}
+                    );
+                })}
             </div>
 
             <div style={{ textAlign: 'center', marginTop: '2rem' }}>

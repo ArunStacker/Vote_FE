@@ -197,7 +197,7 @@ const Vote = () => {
                 animate="visible"
                 className="card"
             >
-                <h2 style={{ textAlign: 'center', marginBottom: '2rem' }} className="title-gradient">Cast Your Vote</h2>
+                <h2 style={{ textAlign: 'center', marginBottom: '2rem' }} className="title-gradient">Share Your Opinion</h2>
 
                 {error && (
                     <motion.div
@@ -210,10 +210,10 @@ const Vote = () => {
 
                 <form onSubmit={handleSubmit}>
                     <div style={{ marginBottom: '1.5rem' }}>
-                        <label style={{ display: 'block', marginBottom: '0.5rem', color: 'var(--text-secondary)' }}>Full Name</label>
+                        <label style={{ display: 'block', marginBottom: '0.5rem', color: 'var(--text-secondary)' }}>Name</label>
                         <input
                             type="text"
-                            placeholder="Ex. Arun Kumar"
+                            placeholder="Ex. Arun"
                             value={formData.name}
                             onChange={e => setFormData({ ...formData, name: e.target.value })}
                         />

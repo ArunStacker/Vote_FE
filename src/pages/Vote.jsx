@@ -13,7 +13,7 @@ import TVK from '../assets/parties/TVK.jpg';
 
 const parties = [
     { id: 'DMK', name: 'DMK', color: '#FF0000', image: Dmk },
-    { id: 'AIADMK', name: 'AIADMK', color: '#008000', image: ADMK },
+    { id: 'ADMK', name: 'ADMK', color: '#008000', image: ADMK },
     { id: 'TVK', name: 'TVK', color: '#0000FF', image: TVK },
     { id: 'NTK', name: 'NTK', color: '#FFD700', image: NTK },
     { id: 'PMK', name: 'PMK', color: '#FFD700', image: PMK },
@@ -71,9 +71,16 @@ const Vote = () => {
                 localStorage.setItem('tn_election_2026_voted', 'true');
                 setStatus('success');
             } else if (err.response && err.response.data) {
-                const msg = typeof err.response.data === 'string'
-                    ? err.response.data
-                    : Object.values(err.response.data).join(', ');
+                let msg = '';
+                if (typeof err.response.data === 'string') {
+                    msg = err.response.data;
+                } else if (err.response.data.message) {
+                    msg = err.response.data.message;
+                } else if (err.response.data.error) {
+                    msg = err.response.data.error;
+                } else {
+                    msg = JSON.stringify(err.response.data);
+                }
                 setError(msg);
             } else {
                 setError('Something went wrong. Please check connection.');

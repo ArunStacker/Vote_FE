@@ -10,6 +10,8 @@ import NTK from '../assets/parties/NTK.jpg';
 import BJP from '../assets/parties/BJP.jpg';
 import Dmk from '../assets/parties/DMK.jpg';
 import TVK from '../assets/parties/TVK.jpg';
+import Congress from '../assets/parties/Congress.png';
+import DMDK from '../assets/parties/DMDK.jpg';
 
 const parties = [
     { id: 'DMK', name: 'DMK', color: '#FF0000', image: Dmk },
@@ -18,7 +20,8 @@ const parties = [
     { id: 'NTK', name: 'NTK', color: '#FFD700', image: NTK },
     { id: 'PMK', name: 'PMK', color: '#FFD700', image: PMK },
     { id: 'BJP', name: 'BJP', color: '#FF9933', image: BJP },
-
+    { id: 'Congress', name: 'Congress', color: '#1976D2', image: Congress },
+    { id: 'DMDK', name: 'DMDK', color: '#FFC107', image: DMDK },
 ];
 
 const cardVariants = {

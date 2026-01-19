@@ -62,7 +62,7 @@ const Home = () => {
                         </p>
                         <p style={{ marginBottom: '2rem', fontSize: '1.1rem', lineHeight: '1.6' }}>
                             This is not an official election or exit poll and not affiliated with the Election Commission of India or any political party.
-                            [இது கல்வி மற்றும் ஆய்வுக்காக நடத்தப்படும் பெயரில்லா பொது கருத்துக் கணிப்பு.
+                            [இது கல்வி மற்றும் ஆய்வுக்காக நடத்தப்படும் கருத்துக் கணிப்பு.
 இது அதிகாரப்பூர்வ தேர்தல் அல்ல; இந்திய தேர்தல் ஆணையம் அல்லது எந்த அரசியல் கட்சியுடனும் தொடர்பில்லை.]
                         </p>
                         <button

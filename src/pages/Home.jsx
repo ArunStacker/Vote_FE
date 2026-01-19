@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import Timer from '../components/Timer';
@@ -7,6 +7,7 @@ import api from '../api';
 
 const Home = () => {
     const [totalVotes, setTotalVotes] = useState(0);
+    const voteButtonRef = useRef(null);
 
     useEffect(() => {
         api.get('/stats')
@@ -16,7 +17,18 @@ const Home = () => {
         const interval = setInterval(() => {
             api.get('/stats').then(res => setTotalVotes(res.data)).catch(console.error);
         }, 5000); // Live updates
-        return () => clearInterval(interval);
+
+        // Auto-scroll to "Vote Now" after a short delay for mobile UX
+        const scrollTimer = setTimeout(() => {
+            if (voteButtonRef.current) {
+                voteButtonRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+        }, 1500);
+
+        return () => {
+            clearInterval(interval);
+            clearTimeout(scrollTimer);
+        };
     }, []);
 
     return (
@@ -46,7 +58,11 @@ const Home = () => {
             </motion.div>
 
             <Link to="/vote">
-                <button className="btn-primary" style={{ fontSize: '1.5rem', padding: '1rem 3rem' }}>
+                <button
+                    ref={voteButtonRef}
+                    className="btn-primary"
+                    style={{ fontSize: '1.5rem', padding: '1rem 3rem' }}
+                >
                     Vote Now
                 </button>
             </Link>

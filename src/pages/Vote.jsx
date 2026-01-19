@@ -36,6 +36,7 @@ const Vote = () => {
     const navigate = useNavigate();
 
     React.useEffect(() => {
+        window.scrollTo(0, 0); // Scroll to top on load
         const hasVoted = localStorage.getItem('tn_election_2026_voted');
         if (hasVoted) {
             setStatus('already-voted');

@@ -118,7 +118,7 @@ const Home = () => {
 
             <div style={{ marginTop: '2rem' }}>
                 <Link to="/results" style={{ color: 'var(--secondary)', textDecoration: 'none' }}>
-                    ➡️ View Results (Available Jan 25th 10am) ⬅️   © 2026 TN Public Opinion Survey [Arunkumar2003arun@gmail.com]
+                    ➡️ View Results for survey (Available Jan 25th 10am) ⬅️   © 2026 TN Public Opinion Survey [Arunkumar2003arun@gmail.com]
                 </Link>
             </div>
 

@@ -107,9 +107,9 @@ const Vote = () => {
                     >
                         ✋
                     </motion.div>
-                    <h1 className="title-gradient">You Have Already Voted</h1>
-                    <p style={{ fontSize: '1.2rem' }}>Only one vote is allowed per person.</p>
-                    <p style={{ color: 'var(--text-secondary)' }}>Thank you for participating!</p>
+                    <h1 className="title-gradient">Survey Already Completed</h1>
+                    <p style={{ fontSize: '1.2rem' }}>Only one response is allowed per participant.</p>
+                    <p style={{ color: 'var(--text-secondary)' }}>Thank you for your participation.</p>
 
                     <div style={{ margin: '2rem' }}>
                         <button className="btn-primary" onClick={() => navigate('/')}>
@@ -144,7 +144,7 @@ const Vote = () => {
                         🎉
                     </motion.div>
                     <h1 className="title-gradient">Submission Successful!</h1>
-                    <p style={{ fontSize: '1.2rem' }}>Thank you for voting, {formData.name}.</p>
+                    <p style={{ fontSize: '1.2rem' }}>Thank you for participating., {formData.name}.</p>
                     <p style={{ color: 'var(--text-secondary)' }}>The result will be published on Sunday, 25 June at 10:00 AM</p>
 
                     <div style={{ margin: '2rem' }}>
@@ -174,7 +174,7 @@ const Vote = () => {
                     </motion.div>
                     <h1 style={{ color: 'var(--secondary)' }}>Not Eligible</h1>
                     <p style={{ fontSize: '1.2rem' }}>Sorry, {formData.name}.</p>
-                    <p>You must be 18 years or older to participate in this election.</p>
+                    <p>you must be 18 years or older to participate in this survey.</p>
 
                     <div style={{ margin: '2rem' }}>
                         <button className="btn-primary" onClick={() => setStatus('idle')}>
@@ -197,7 +197,7 @@ const Vote = () => {
                 animate="visible"
                 className="card"
             >
-                <h2 style={{ textAlign: 'center', marginBottom: '2rem' }} className="title-gradient">Cast Your Vote</h2>
+                <h2 style={{ textAlign: 'center', marginBottom: '2rem' }} className="title-gradient">Share Your Opinion</h2>
 
                 {error && (
                     <motion.div
@@ -210,10 +210,10 @@ const Vote = () => {
 
                 <form onSubmit={handleSubmit}>
                     <div style={{ marginBottom: '1.5rem' }}>
-                        <label style={{ display: 'block', marginBottom: '0.5rem', color: 'var(--text-secondary)' }}>Full Name</label>
+                        <label style={{ display: 'block', marginBottom: '0.5rem', color: 'var(--text-secondary)' }}>Name</label>
                         <input
                             type="text"
-                            placeholder="Ex. Arun Kumar"
+                            placeholder="Ex. Arun"
                             value={formData.name}
                             onChange={e => setFormData({ ...formData, name: e.target.value })}
                         />

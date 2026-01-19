@@ -7,6 +7,7 @@ import api from '../api';
 
 const Home = () => {
     const [totalVotes, setTotalVotes] = useState(0);
+    const [showDisclaimer, setShowDisclaimer] = useState(true);
     const voteButtonRef = useRef(null);
 
     useEffect(() => {
@@ -33,16 +34,64 @@ const Home = () => {
 
     return (
         <div className="container" style={{ textAlign: 'center', paddingTop: '4rem' }}>
+            {showDisclaimer && (
+                <div style={{
+                    position: 'fixed',
+                    top: 0,
+                    left: 0,
+                    width: '100%',
+                    height: '100%',
+                    backgroundColor: 'rgba(0,0,0,0.9)',
+                    zIndex: 1000,
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    padding: '20px'
+                }}>
+                    <div style={{
+                        backgroundColor: '#fff',
+                        color: '#333',
+                        padding: '2rem',
+                        borderRadius: '10px',
+                        maxWidth: '600px',
+                        textAlign: 'left'
+                    }}>
+                        <h2 style={{ marginBottom: '1rem', color: '#d32f2f' }}>Disclaimer</h2>
+                        <p style={{ marginBottom: '1rem', fontSize: '1.1rem', lineHeight: '1.6' }}>
+                            This is an independent, voluntary, anonymous public opinion survey for educational and analytical purposes only.
+                        </p>
+                        <p style={{ marginBottom: '2rem', fontSize: '1.1rem', lineHeight: '1.6' }}>
+                            This is not an official election or exit poll and not affiliated with the Election Commission of India or any political party.
+                        </p>
+                        <button
+                            onClick={() => setShowDisclaimer(false)}
+                            style={{
+                                backgroundColor: '#1a73e8',
+                                color: '#fff',
+                                padding: '10px 20px',
+                                border: 'none',
+                                borderRadius: '5px',
+                                fontSize: '1rem',
+                                cursor: 'pointer',
+                                width: '100%'
+                            }}
+                        >
+                            OK, I Understand
+                        </button>
+                    </div>
+                </div>
+            )}
+
             <motion.h1
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 style={{ fontSize: '5rem', marginBottom: '1rem', color: '#ffffff', textShadow: '2px 2px 4px rgba(0,0,0,0.5)' }}
             >
-                Tamil Nadu Election 2026
+                Tamil Nadu 2026 – Public Opinion Survey
             </motion.h1>
 
             <p style={{ fontSize: '1.8rem', color: '#f8fafc', fontWeight: '500' }}>
-                Your Vote, Your Future. Every vote counts towards analysing.
+                Share your opinion anonymously. Responses are used only for survey analysis.
             </p>
 
             <Timer />
@@ -51,7 +100,7 @@ const Home = () => {
                 className="card"
                 style={{ maxWidth: '400px', margin: '2rem auto' }}
             >
-                <h3>Total Votes Cast</h3>
+                <h3>Total Survey Responses</h3>
                 <div style={{ fontSize: '3rem', fontWeight: 'bold', color: 'var(--primary)' }}>
                     {totalVotes.toLocaleString()}
                 </div>
@@ -63,13 +112,13 @@ const Home = () => {
                     className="btn-primary"
                     style={{ fontSize: '1.5rem', padding: '1rem 3rem' }}
                 >
-                    Vote Now
+                    Take Survey
                 </button>
             </Link>
 
             <div style={{ marginTop: '2rem' }}>
                 <Link to="/results" style={{ color: 'var(--secondary)', textDecoration: 'none' }}>
-                    ➡️ View Results (Available Jan 25th 10am) ⬅️   © 2026 TN Vote Analysis [Arunkumar2003arun@gmail.com]
+                    ➡️ View Results (Available Jan 25th 10am) ⬅️   © 2026 TN Public Opinion Survey [Arunkumar2003arun@gmail.com]
                 </Link>
             </div>
 

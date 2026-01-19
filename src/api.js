@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-    baseURL: 'https://www.tn2026.online/',
+    baseURL: 'https://voters-production-37c7.up.railway.app/api',
 });
 
 export default api;
